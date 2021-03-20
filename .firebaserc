@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "git-pet-37879"
+  },
+  "targets": {
+    "git-pet-37879": {
+      "hosting": {
+        "git-pet": [
+          "git-pet-37879"
+        ]
+      }
+    }
   }
 }
