@@ -1,16 +1,49 @@
-.attribute {
-  margin: 16px;
-  font-size: 10px;
-}
-
 .swiper-slide {
   opacity: 0.3;
   transition: ease;
   transition-duration: 800ms;
+  text-align: center;
 }
 
 .swiper-slide-active {
   opacity: 1;
   transition: ease;
   transition-duration: 800ms;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.swiper {
+  margin-bottom: 40px;
+}
+
+.container {
+  padding: 0 24px;
+}
+
+.name-input {
+  width: 100%;
+}
+
+.radio-group {
+  margin-bottom: 32px;
+  display: block;
+  &__item {
+    margin-right: 24px;
+  }
+}
+
+.form-footer {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.attribute {
+  text-align: center;
+  margin: 16px;
+  font-size: 10px;
 }
