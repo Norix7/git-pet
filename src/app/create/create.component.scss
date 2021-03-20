@@ -1,0 +1,16 @@
+.attribute {
+  margin: 16px;
+  font-size: 10px;
+}
+
+.swiper-slide {
+  opacity: 0.3;
+  transition: ease;
+  transition-duration: 800ms;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  transition: ease;
+  transition-duration: 800ms;
+}

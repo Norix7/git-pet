@@ -1,5 +1,17 @@
 <h1>ペットをつくる</h1>
-<p>カルーセルが入る</p>
+
+<div>
+  <swiper [config]="config" [(index)]="selectedPetId">
+    <div *ngFor="let petId of petIds" class="swiper-slide">
+      <img src="../../assets/images/pet-{{ petId }}.png" alt="" />
+    </div>
+    <!-- <div class="swiper-scrollbar"></div>
+      <div class="swiper-pagination"></div>
+
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div> -->
+  </swiper>
+</div>
 
 <form [formGroup]="form" (ngSubmit)="submit()">
   <mat-form-field>
@@ -27,3 +39,9 @@
     つくる
   </button>
 </form>
+
+<div class="attribute">
+  <a href="https://www.freepik.com/vectors/people"
+    >People vector created by skydesign - www.freepik.com</a
+  >
+</div>
