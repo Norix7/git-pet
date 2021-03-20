@@ -8,8 +8,8 @@ import { Pet } from '../interfaces/pet';
 })
 export class HomeComponent implements OnInit {
   pet: Pet = {
-    name: 'テストペット',
-    exp: 323,
+    name: 'テストペットA',
+    exp: 111,
     level: 4,
     avatarURL: 'assets/images/pet-1.png',
   };
