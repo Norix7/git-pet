@@ -5,12 +5,10 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { PetComponent } from './pet.component';
 
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [HomeComponent, PetComponent],
-  imports: [
-    CommonModule,
-    HomeRoutingModule
-  ]
+  imports: [CommonModule, HomeRoutingModule, MatProgressBarModule],
 })
-export class HomeModule { }
+export class HomeModule {}
