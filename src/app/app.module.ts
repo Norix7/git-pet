@@ -14,7 +14,10 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { MatButtonModule } from '@angular/material/button';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {
+  MatSnackBarModule,
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,6 +38,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     {
       provide: REGION,
       useValue: 'asia-northeast1',
+    },
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: {
+        duration: 3000,
+      },
     },
   ],
   bootstrap: [AppComponent],

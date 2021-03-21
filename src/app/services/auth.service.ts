@@ -20,21 +20,19 @@ export class AuthService {
     this.afAuth
       .signInWithPopup(new firebase.auth.GithubAuthProvider())
       .then((_) =>
-        this.router.navigateByUrl('/create').then((_) =>
-          this.snackBar.open('ようこそ、GitPetへ！', null, {
-            duration: 2000,
-          })
-        )
+        this.router
+          .navigateByUrl('/create')
+          .then((_) => this.snackBar.open('ようこそ、GitPetへ！', null))
       );
   }
 
   logout() {
-    this.afAuth.signOut().then((_) =>
-      this.router.navigateByUrl('/welcome').then((_) =>
-        this.snackBar.open('ログアウトしました', null, {
-          duration: 2000,
-        })
-      )
-    );
+    this.afAuth
+      .signOut()
+      .then((_) =>
+        this.router
+          .navigateByUrl('/welcome')
+          .then((_) => this.snackBar.open('ログアウトしました', null))
+      );
   }
 }
