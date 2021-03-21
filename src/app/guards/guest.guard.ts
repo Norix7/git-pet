@@ -16,7 +16,7 @@ import { map, take, tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate, CanLoad {
+export class GuestGuard implements CanActivate, CanLoad {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
@@ -27,14 +27,7 @@ export class AuthGuard implements CanActivate, CanLoad {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.authService.afUser$.pipe(
-      map((user) => !!user),
-      tap((isLoggedIn) => {
-        if (!isLoggedIn) {
-          this.router.navigateByUrl('/welcome');
-        }
-      })
-    );
+    return true;
   }
   canLoad(
     route: Route,
@@ -44,14 +37,6 @@ export class AuthGuard implements CanActivate, CanLoad {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.authService.afUser$.pipe(
-      map((user) => !!user),
-      take(1),
-      tap((isLoggedIn) => {
-        if (!isLoggedIn) {
-          this.router.navigateByUrl('/welcome');
-        }
-      })
-    );
+    return true;
   }
 }
