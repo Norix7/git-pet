@@ -27,7 +27,14 @@ export class GuestGuard implements CanActivate, CanLoad {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return true;
+    return this.authService.afUser$.pipe(
+      map((user) => !user),
+      tap((isGuest) => {
+        if (!isGuest) {
+          this.router.navigateByUrl('/');
+        }
+      })
+    );
   }
   canLoad(
     route: Route,
@@ -37,6 +44,14 @@ export class GuestGuard implements CanActivate, CanLoad {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return true;
+    return this.authService.afUser$.pipe(
+      map((user) => !user),
+      take(1),
+      tap((isGuest) => {
+        if (!isGuest) {
+          this.router.navigateByUrl('/');
+        }
+      })
+    );
   }
 }
