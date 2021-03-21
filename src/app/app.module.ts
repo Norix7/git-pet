@@ -14,6 +14,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -27,6 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
     AngularFireStorageModule,
     AngularFireAuthModule,
     MatButtonModule,
+    MatSnackBarModule,
   ],
   providers: [
     {
