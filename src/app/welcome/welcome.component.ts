@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -8,15 +7,11 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./welcome.component.scss'],
 })
 export class WelcomeComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
 
   login() {
-    this.authService.login().then((_) => this.router.navigateByUrl('/create'));
-  }
-
-  logout() {
-    this.authService.logout();
+    this.authService.login();
   }
 }

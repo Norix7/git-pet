@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 
@@ -8,13 +9,15 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   afUser$: Observable<firebase.User> = this.afAuth.user;
-  constructor(private afAuth: AngularFireAuth) {}
+  constructor(private afAuth: AngularFireAuth, private router: Router) {}
 
-  login(): Promise<firebase.auth.UserCredential> {
-    return this.afAuth.signInWithPopup(new firebase.auth.GithubAuthProvider());
+  login() {
+    this.afAuth
+      .signInWithPopup(new firebase.auth.GithubAuthProvider())
+      .then((_) => this.router.navigateByUrl('/create'));
   }
 
   logout() {
-    this.afAuth.signOut();
+    this.afAuth.signOut().then((_) => this.router.navigateByUrl('/welcome'));
   }
 }
