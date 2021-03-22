@@ -3,5 +3,6 @@ export interface Pet {
   name: string;
   level: number;
   exp: number;
+  gender: 'male' | 'female';
   trainerId: string;
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { AuthService } from '../services/auth.service';
+import { PetService } from '../services/pet.service';
 
 @Component({
   selector: 'app-create',
@@ -28,13 +30,27 @@ export class CreateComponent implements OnInit {
     gender: ['', [Validators.required, Validators.pattern(/male|female/)]],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private petService: PetService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {}
 
   submit() {
     console.log(this.form.value);
     console.log(this.selectedPetId);
+
+    const formData = this.form.value;
+    this.petService.createPet({
+      petImageId: this.selectedPetId,
+      name: formData.name,
+      gender: formData.gender,
+      level: 1,
+      exp: 0,
+      trainerId: this.authService.uid,
+    });
   }
 
   get nameControl() {
