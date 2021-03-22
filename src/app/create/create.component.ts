@@ -44,7 +44,7 @@ export class CreateComponent implements OnInit {
 
     const formData = this.form.value;
     this.petService.createPet({
-      petImageId: this.selectedPetId,
+      petImageId: this.selectedPetId + 1,
       name: formData.name,
       gender: formData.gender,
       level: 1,
