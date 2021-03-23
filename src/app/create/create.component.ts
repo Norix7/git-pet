@@ -39,9 +39,6 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {}
 
   submit() {
-    console.log(this.form.value);
-    console.log(this.selectedPetId);
-
     const formData = this.form.value;
     this.petService.createPet({
       petImageId: this.selectedPetId + 1,
