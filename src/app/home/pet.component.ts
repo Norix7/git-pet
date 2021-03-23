@@ -9,7 +9,7 @@ import { Pet } from '../interfaces/pet';
 export class PetComponent implements OnInit {
   @Input() pet: Pet;
 
-  maxExp = 400;
+  maxExp = 40;
   expPercent = 0;
 
   constructor() {}
