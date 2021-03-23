@@ -12,6 +12,7 @@ export class AuthService {
   afUser$: Observable<firebase.User> = this.afAuth.user;
 
   uid: string;
+  gitHubId: number;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -19,6 +20,7 @@ export class AuthService {
     private snackBar: MatSnackBar
   ) {
     this.afUser$.subscribe((user) => {
+      this.gitHubId = user ? +user.providerData[0].uid : null;
       this.uid = user && user.uid;
     });
   }
