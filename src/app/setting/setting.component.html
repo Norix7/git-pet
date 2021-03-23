@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>設定</h1>
+  <mat-card>
+    <mat-card-title>GitHub Apps連携</mat-card-title>
+    <mat-card-subtitle>GitPetとGitHubの連携設定</mat-card-subtitle>
+    <mat-card-content>
+      <ng-container *ngIf="connectedGitHub; else notConnected">
+        <p>連携済み</p>
+        <p>
+          <small
+            >※GitHub Appsとの連携は、GitHubの設定画面から解除できます。</small
+          >
+        </p>
+      </ng-container>
+      <ng-template #notConnected>
+        <p>未連携</p>
+        <p>GitPetを使用するには、以下のボタンからGitHubと連携してください。</p>
+      </ng-template>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        [disabled]="connectedGitHub"
+        mat-raised-button
+        color="primary"
+        onclick="window.open().location.href='https://github.com/apps/git-pet123'"
+      >
+        GitPetをインストール
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
