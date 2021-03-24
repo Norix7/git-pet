@@ -7,10 +7,11 @@ const expTable = [20, 40, 70, 110, 160, 220, 290, 370, 460];
   name: 'exp',
 })
 export class ExpPipe implements PipeTransform {
-  transform(pet: Pet, ...args: any[]): any {
+  transform(pet: Pet, type: 'percent' | 'label'): any {
     const totalExp = pet.exp;
     let prevExp = 0;
-    let result = 'no-data';
+    let nowExp = 0;
+    let nextExp = 20;
 
     console.log('totalExp=' + totalExp);
 
@@ -19,10 +20,16 @@ export class ExpPipe implements PipeTransform {
 
       if (totalExp < data) {
         console.log('in-if');
-        result = totalExp - prevExp + ' / ' + (data - prevExp);
+        nowExp = totalExp - prevExp;
+        nextExp = data - prevExp;
         return true;
       } else prevExp = data;
     });
-    return result;
+
+    if (type === 'percent') {
+      return (nowExp / nextExp) * 100;
+    } else {
+      return nowExp + ' / ' + nextExp;
+    }
   }
 }

@@ -10,9 +10,9 @@
       class="pet__exp-bar"
       color="primary"
       mode="determinate"
-      [value]="ExpPercentage"
+      [value]="pet | exp: 'percent'"
     >
     </mat-progress-bar>
-    <p class="pet__exp">経験値 {{ pet | exp }}</p>
+    <p class="pet__exp">経験値 {{ pet | exp: "label" }}</p>
   </div>
 </div>
