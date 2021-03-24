@@ -13,13 +13,8 @@ export class ExpPipe implements PipeTransform {
     let nowExp = 0;
     let nextExp = 20;
 
-    console.log('totalExp=' + totalExp);
-
     expTable.some((data, i) => {
-      console.log('data=' + data + ' i=' + i);
-
       if (totalExp < data) {
-        console.log('in-if');
         nowExp = totalExp - prevExp;
         nextExp = data - prevExp;
         return true;
