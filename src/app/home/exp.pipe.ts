@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Pet } from '../interfaces/pet';
 
-const expTable = [20, 40, 70, 110, 160, 220, 290, 370, 460];
+const expTable = [20, 50, 90, 140, 200, 270, 350, 440, 540];
 
 @Pipe({
   name: 'exp',
