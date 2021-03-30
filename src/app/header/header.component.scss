@@ -1,0 +1,43 @@
+.header-container {
+  padding: 4px;
+}
+.header {
+  display: flex;
+  &__logo {
+    height: 40px;
+    min-width: 40px;
+    background: url("../../assets/images/welcome-hero.png") center / cover;
+  }
+  &__spacer {
+    width: 100%;
+  }
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding-left: 0px;
+  padding-right: 16px;
+  list-style: none;
+  & li + li {
+    margin-left: 8px;
+  }
+  &__item {
+    // height: 40px;
+    // width: 80px;
+    text-align: center;
+  }
+  & a {
+    display: block;
+    height: 40px;
+    padding: 0 8px;
+    line-height: 40px;
+    text-decoration: none;
+    transition-duration: 400ms;
+    &:hover {
+      background-color: #eee;
+      transition-duration: 400ms;
+    }
+  }
+}

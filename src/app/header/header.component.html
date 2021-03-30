@@ -1,0 +1,26 @@
+<div class="header-container">
+  <div class="header">
+    <div class="header__logo"></div>
+    <div class="header__spacer"></div>
+    <ol class="header-nav">
+      <li class="header-nav__item">
+        <a routerLink="/" class="menu">Home</a>
+      </li>
+      <li class="header-nav__item">
+        <a routerLink="/create" class="menu">Create</a>
+      </li>
+      <li class="header-nav__item">
+        <a routerLink="/setting" class="menu">Setting</a>
+      </li>
+    </ol>
+    <button
+      *ngIf="!(user$ | async)"
+      class="header_login-button"
+      mat-raised-button
+      color="primary"
+      (click)="login()"
+    >
+      login
+    </button>
+  </div>
+</div>
