@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>ユーザー削除の確認</h1>
+<div mat-dialog-content>
+  <p>（注意）削除したユーザーを復元することはできません。</p>
+  <p>削除して良ければ「削除する」と入力して削除ボタンを押してください。</p>
+  <mat-form-field>
+    <mat-label>削除する</mat-label>
+    <input matInput [(ngModel)]="data.res" autocomplete="off" required />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">キャンセル</button>
+  <button
+    mat-button
+    [disabled]="data.res!='削除する'"
+    [mat-dialog-close]="data.res"
+    cdkFocusInitial
+  >
+    削除
+  </button>
+</div>

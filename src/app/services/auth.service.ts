@@ -44,4 +44,19 @@ export class AuthService {
           .then(() => this.snackBar.open('ログアウトしました', null))
       );
   }
+
+  deleteUser() {
+    firebase
+      .auth()
+      .currentUser.delete()
+      .then(() => {
+        this.router
+          .navigateByUrl('/welcome')
+          .then(() => this.snackBar.open('ユーザーを削除しました', null));
+      })
+      .catch((error) => {
+        this.snackBar.open('ユーザー削除に失敗しました', null);
+        console.log(error);
+      });
+  }
 }

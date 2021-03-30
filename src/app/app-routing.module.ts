@@ -26,7 +26,13 @@ const routes: Routes = [
     canLoad: [AuthGuard],
     canActivate: [AuthGuard],
   },
-  { path: 'setting', loadChildren: () => import('./setting/setting.module').then(m => m.SettingModule) },
+  {
+    path: 'setting',
+    loadChildren: () =>
+      import('./setting/setting.module').then((m) => m.SettingModule),
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard],
+  },
   {
     path: '**',
     component: NotFoundComponent,
